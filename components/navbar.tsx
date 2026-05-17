@@ -34,14 +34,14 @@ export default function Navbar() {
             : "bg-white border-b border-slate-100"
         }`}
       >
-        <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-14" : "h-16"}`}>
+        <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-[68px]" : "h-[76px]"}`}>
           <Link href="/">
             <Image
               src="/logo.png"
               alt="Miss Floss"
-              height={72}
-              width={216}
-              style={{ width: "auto", height: "72px" }}
+              height={56}
+              width={180}
+              style={{ width: "auto", height: "56px" }}
               quality={100}
               priority
             />
@@ -106,7 +106,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`fixed ${scrolled ? "top-14" : "top-16"} left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm p-6 md:hidden`}
+            className={`fixed ${scrolled ? "top-[68px]" : "top-[76px]"} left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm p-6 md:hidden`}
           >
             <nav className="flex flex-col gap-5">
               {navLinks.map((link) => (

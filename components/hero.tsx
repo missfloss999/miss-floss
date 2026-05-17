@@ -282,7 +282,9 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 mb-10"
             >
               <motion.a
-                href="#demo"
+                href="https://cal.com/anmol-anand-f7s3pe"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold text-white bg-teal-600 rounded-full hover:bg-teal-700 transition-colors duration-200 shadow-[0_4px_20px_rgba(13,148,136,0.35)] hover:shadow-[0_6px_28px_rgba(13,148,136,0.5)]"
@@ -306,6 +308,10 @@ export default function Hero() {
                 href="#how-it-works"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-medium text-slate-700 bg-slate-100 border border-slate-200 rounded-full hover:bg-slate-200 transition-colors duration-200"
               >
                 See How It Works

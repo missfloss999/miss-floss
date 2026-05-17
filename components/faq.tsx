@@ -152,7 +152,7 @@ export default function FAQ() {
         >
           Still have questions?{" "}
           <a
-            href="mailto:hello@missfloss.ca"
+            href="mailto:hello@missfloss.ai"
             className="text-teal-600 hover:text-teal-700 transition-colors font-medium"
           >
             Talk to our team →

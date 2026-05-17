@@ -45,7 +45,9 @@ export default function CTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <motion.a
-              href="mailto:demo@missfloss.ca"
+              href="https://cal.com/anmol-anand-f7s3pe"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center gap-2 h-14 px-8 text-base font-semibold text-white bg-teal-600 rounded-full hover:bg-teal-700 transition-colors duration-200 shadow-[0_6px_28px_rgba(13,148,136,0.4)] hover:shadow-[0_8px_36px_rgba(13,148,136,0.55)]"

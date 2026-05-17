@@ -11,11 +11,11 @@ const footerLinks = {
     { label: "About", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Careers", href: "#" },
-    { label: "Contact", href: "mailto:hello@missfloss.ca" },
+    { label: "Contact", href: "mailto:hello@missfloss.ai" },
   ],
   Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
     { label: "PIPEDA Compliance", href: "#" },
     { label: "Cookie Policy", href: "#" },
   ],
@@ -48,7 +48,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-xs text-slate-400">
               <span>📍 Toronto, Ontario, Canada</span>
               <a
-                href="mailto:hello@missfloss.ca"
+                href="mailto:hello@missfloss.ai"
                 className="hover:text-teal-600 transition-colors"
               >
                 ✉️ hello@missfloss.ca

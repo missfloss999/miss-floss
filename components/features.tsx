@@ -85,7 +85,7 @@ export default function Features() {
             Everything Your Front Desk Does.{" "}
             <span className="text-slate-400">Automated.</span>
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Miss Floss handles the entire patient communication workflow — without
             attitude, without sick days, without overtime.
           </p>
@@ -100,10 +100,10 @@ export default function Features() {
               <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 mb-5 group-hover:bg-teal-100 group-hover:border-teal-200 transition-colors duration-300">
                 {f.icon}
               </div>
-              <h3 className="text-sm font-semibold text-slate-800 mb-2">
+              <h3 className="text-base font-semibold text-slate-800 mb-2">
                 {f.title}
               </h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+              <p className="text-base text-slate-500 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

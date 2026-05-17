@@ -327,7 +327,7 @@ export default function Hero() {
             >
               {["PIPEDA Compliant", "Toronto & GTA", "Live in 48 hours", "24/7 availability"].map(
                 (label) => (
-                  <span key={label} className="flex items-center gap-1.5 text-xs text-slate-400">
+                  <span key={label} className="flex items-center gap-1.5 text-sm text-slate-400">
                     <span className="w-1 h-1 rounded-full bg-teal-500" />
                     {label}
                   </span>

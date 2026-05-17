@@ -54,7 +54,7 @@ export default function Problem() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-3 tracking-tight">
             Your Front Desk Is Costing You More Than You Think
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
             While your staff juggles patients, phones, and paperwork — new patients
             are calling your competitors.
           </p>
@@ -67,15 +67,15 @@ export default function Problem() {
               className={`relative group rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md p-6 md:p-7 overflow-hidden transition-all duration-300 border-t-2 ${p.accent}`}
             >
               <p className="text-3xl font-bold text-slate-900 mb-0.5">{p.stat}</p>
-              <p className="text-xs text-slate-400 mb-4">{p.statLabel}</p>
-              <h3 className="text-sm font-semibold text-slate-800 mb-2">{p.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{p.desc}</p>
+              <p className="text-sm text-slate-400 mb-4">{p.statLabel}</p>
+              <h3 className="text-base font-semibold text-slate-800 mb-2">{p.title}</h3>
+              <p className="text-base text-slate-500 leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-slate-500 text-base">
+          <p className="text-slate-500 text-lg leading-relaxed">
             The average GTA dental clinic loses{" "}
             <span className="text-slate-900 font-semibold">
               $8,000–$15,000 per quarter

@@ -12,7 +12,7 @@ export default function TrustBar() {
         {items.map((item) => (
           <div key={item.label} className="text-center md:px-8">
             <p className="text-2xl font-bold text-teal-400 tracking-tight">{item.value}</p>
-            <p className="text-xs text-slate-400 mt-1 leading-snug">{item.label}</p>
+            <p className="text-sm text-slate-400 mt-1 leading-snug">{item.label}</p>
           </div>
         ))}
       </div>

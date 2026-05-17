@@ -68,7 +68,7 @@ export default function Comparison() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-3">
             Why Clinics Choose Miss Floss
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">
             Other options cover some of the problem. Miss Floss solves all of it.
           </p>
         </div>
@@ -77,15 +77,15 @@ export default function Comparison() {
           <table className="w-full min-w-[640px]">
             <thead>
               <tr className="border-b border-slate-200 bg-slate-50">
-                <th className="text-left p-5 text-xs font-semibold text-slate-400 uppercase tracking-wider w-[38%]">
+                <th className="text-left p-5 text-sm font-semibold text-slate-400 uppercase tracking-wider w-[38%]">
                   Feature
                 </th>
                 <th className="p-5 w-[16%] bg-teal-50 border-x border-teal-100">
                   <div className="flex flex-col items-center gap-1">
-                    <span className="text-xs font-bold text-teal-700 uppercase tracking-wide">
+                    <span className="text-sm font-bold text-teal-700 uppercase tracking-wide">
                       Miss Floss
                     </span>
-                    <span className="text-[9px] text-teal-500 font-normal">
+                    <span className="text-xs text-teal-500 font-normal">
                       AI Receptionist
                     </span>
                   </div>
@@ -93,10 +93,10 @@ export default function Comparison() {
                 {competitors.map((c) => (
                   <th key={c.name} className="p-5 w-[16%]">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-xs font-semibold text-slate-600">
+                      <span className="text-sm font-semibold text-slate-600">
                         {c.name}
                       </span>
-                      <span className="text-[9px] text-slate-400 font-normal">
+                      <span className="text-xs text-slate-400 font-normal">
                         {c.note}
                       </span>
                     </div>
@@ -113,7 +113,7 @@ export default function Comparison() {
                     i % 2 === 0 ? "bg-white" : "bg-slate-50/30"
                   }`}
                 >
-                  <td className="px-5 py-4 text-sm text-slate-700">{feat}</td>
+                  <td className="px-5 py-4 text-base text-slate-700">{feat}</td>
                   <td className="px-5 py-4 text-center bg-teal-50/60 border-x border-teal-100">
                     <div className="flex justify-center">
                       <Cell value={true} />
@@ -133,7 +133,7 @@ export default function Comparison() {
         </div>
 
         <div className="flex items-center justify-end gap-5 mt-4 px-1">
-          <span className="flex items-center gap-1.5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5 text-sm text-slate-500">
             <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-teal-50 border border-teal-200">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-2.5 h-2.5 text-teal-600">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -141,13 +141,13 @@ export default function Comparison() {
             </span>
             Included
           </span>
-          <span className="flex items-center gap-1.5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5 text-sm text-slate-500">
             <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-amber-50 border border-amber-200">
               <span className="w-1.5 h-px bg-amber-500 rounded-full" />
             </span>
             Partial
           </span>
-          <span className="flex items-center gap-1.5 text-xs text-slate-500">
+          <span className="flex items-center gap-1.5 text-sm text-slate-500">
             <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-slate-100 border border-slate-200">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-2.5 h-2.5 text-slate-300">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

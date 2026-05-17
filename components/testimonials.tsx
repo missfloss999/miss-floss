@@ -57,7 +57,7 @@ export default function Testimonials() {
               Love Miss Floss.
             </span>
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">
             Dental practice owners share what changed after switching to Miss Floss.
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function Testimonials() {
                 />
               </svg>
 
-              <p className="text-slate-600 leading-relaxed text-sm flex-1">
+              <p className="text-base text-slate-600 leading-relaxed flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
@@ -88,7 +88,7 @@ export default function Testimonials() {
                     <p className="text-sm font-semibold text-slate-900 truncate">{t.name}</p>
                     <Stars count={t.stars} />
                   </div>
-                  <p className="text-[11px] text-slate-400 truncate">
+                  <p className="text-sm text-slate-400 truncate">
                     {t.title} · {t.location}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function Testimonials() {
               </svg>
             ))}
           </div>
-          <p className="text-slate-500 text-sm">
+          <p className="text-base text-slate-500">
             <span className="text-slate-900 font-semibold">4.9 / 5</span> from dental
             clinic owners across Toronto &amp; the GTA
           </p>

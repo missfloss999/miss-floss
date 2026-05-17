@@ -54,7 +54,7 @@ function FAQItem({
         aria-expanded={isOpen}
       >
         <span
-          className={`text-sm font-medium transition-colors duration-200 ${
+          className={`text-base font-medium transition-colors duration-200 ${
             isOpen ? "text-slate-900" : "text-slate-700 group-hover:text-slate-900"
           }`}
         >
@@ -90,7 +90,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-sm text-slate-500 leading-relaxed pb-5 max-w-2xl">
+            <p className="text-base text-slate-500 leading-relaxed pb-5 max-w-2xl">
               {a}
             </p>
           </motion.div>
@@ -113,7 +113,7 @@ export default function FAQ() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-3">
             Got Questions? We Have Answers.
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">
             We know switching to AI feels like a big step. Here&apos;s everything
             you need to know before you do.
           </p>
@@ -131,7 +131,7 @@ export default function FAQ() {
           ))}
         </div>
 
-        <p className="text-center text-sm text-slate-400 mt-8">
+        <p className="text-center text-base text-slate-400 mt-8">
           Still have questions?{" "}
           <a
             href="mailto:hello@missfloss.ai"

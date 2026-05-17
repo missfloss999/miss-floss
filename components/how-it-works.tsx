@@ -38,7 +38,7 @@ export default function HowItWorks() {
               48 Hours.
             </span>
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">
             No complex migrations. No technical lift from your team. We handle everything.
           </p>
         </div>
@@ -59,11 +59,11 @@ export default function HowItWorks() {
               </div>
 
               <div className="text-center lg:text-left">
-                <span className="inline-block text-[10px] font-semibold text-teal-600 tracking-widest uppercase bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full mb-4">
+                <span className="inline-block text-xs font-semibold text-teal-600 tracking-widest uppercase bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full mb-4">
                   {step.badge}
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                <p className="text-slate-500 leading-relaxed text-sm md:text-base">
+                <p className="text-base text-slate-500 leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -72,7 +72,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-8 mx-auto max-w-2xl rounded-2xl border border-teal-200 bg-teal-50 p-8 text-center">
-          <p className="text-slate-700 text-base leading-relaxed">
+          <p className="text-base text-slate-700 leading-relaxed">
             <span className="text-slate-900 font-semibold">
               No hardware. No training sessions. No disruption.
             </span>{" "}

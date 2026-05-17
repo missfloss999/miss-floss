@@ -62,7 +62,7 @@ export default function Solution() {
               Your 24/7 AI Receptionist.
             </span>
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Human-sounding. Always available. Books appointments while you sleep.
           </p>
         </div>
@@ -82,10 +82,10 @@ export default function Solution() {
                     {step.number}
                   </span>
                 </div>
-                <h3 className="text-sm font-semibold text-slate-800 mb-2">
+                <h3 className="text-base font-semibold text-slate-800 mb-2">
                   {step.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-base text-slate-500 leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function Solution() {
             href="https://cal.com/anmol-anand-f7s3pe"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 hover:text-teal-700 transition-colors border border-teal-200 hover:border-teal-300 px-6 py-3 rounded-full hover:bg-teal-50"
+            className="inline-flex items-center gap-2 text-base font-semibold text-teal-600 hover:text-teal-700 transition-colors border border-teal-200 hover:border-teal-300 px-6 py-3 rounded-full hover:bg-teal-50"
           >
             See a live demo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">

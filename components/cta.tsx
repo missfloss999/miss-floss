@@ -84,7 +84,7 @@ export default function CTA() {
             </motion.a>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-xs text-slate-400">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
             {[
               "No credit card required",
               "Setup in 48 hours",

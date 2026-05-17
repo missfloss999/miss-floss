@@ -41,11 +41,11 @@ export default function Footer() {
                 Miss Floss
               </span>
             </Link>
-            <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
+            <p className="text-base text-slate-500 leading-relaxed max-w-xs mb-6">
               The AI voice receptionist built for Canadian dental clinics.
               24/7 availability, human-like conversations, instant bookings.
             </p>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
+            <div className="flex flex-col gap-2 text-sm text-slate-400">
               <span>📍 Toronto, Ontario, Canada</span>
               <a
                 href="mailto:hello@missfloss.ai"
@@ -67,7 +67,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                      className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200"
                     >
                       {link.label}
                     </a>
@@ -80,15 +80,15 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-400">
+          <p className="text-sm text-slate-400">
             © {new Date().getFullYear()} Miss Floss Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400">
+            <span className="text-sm text-slate-400">
               AI Receptionist for Dental Clinics · Toronto &amp; GTA · Canada
             </span>
             <span className="w-1 h-1 rounded-full bg-teal-400" />
-            <span className="text-xs text-teal-600 font-medium">PIPEDA Compliant</span>
+            <span className="text-sm text-teal-600 font-medium">PIPEDA Compliant</span>
           </div>
         </div>
       </div>

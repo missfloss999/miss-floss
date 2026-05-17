@@ -161,7 +161,7 @@ export default function Benefits() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-3">
             The Numbers Don&apos;t Lie.
           </h2>
-          <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">
             Real results from clinics that made the switch in Toronto and the GTA.
           </p>
         </div>
@@ -181,8 +181,8 @@ export default function Benefits() {
                   duration={2500}
                 />
               </p>
-              <p className="text-sm font-semibold text-slate-800 mb-3">{s.label}</p>
-              <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+              <p className="text-base font-semibold text-slate-800 mb-3">{s.label}</p>
+              <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -218,8 +218,8 @@ export default function Benefits() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-800 mb-1.5">{b.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{b.desc}</p>
+                <h3 className="text-base font-semibold text-slate-800 mb-1.5">{b.title}</h3>
+                <p className="text-base text-slate-500 leading-relaxed">{b.desc}</p>
               </div>
             </div>
           ))}

@@ -38,7 +38,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Miss Floss"
-              style={{ height: "64px", width: "auto", display: "block" }}
+              style={{ height: "64px", width: "auto", display: "block", mixBlendMode: "multiply" }}
             />
           </Link>
 

@@ -18,19 +18,20 @@ export default function FloatingButtons() {
   const showScrollTop = scrollY > 600;
 
   return (
-    <>
-      {/* Back to Top — bottom left */}
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-end">
+      {/* Back to Top — appears above Book a Demo */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
             key="scroll-top"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            initial={{ opacity: 0, scale: 0.85, y: 16 }}
+            initial={{ opacity: 0, scale: 0.85, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 16 }}
+            exit={{ opacity: 0, scale: 0.85, y: 12 }}
             transition={spring}
-            aria-label="Back to top of page"
-            className="fixed bottom-6 left-6 z-50 inline-flex items-center gap-2 h-11 px-5 rounded-full bg-white border border-teal-400 text-teal-600 text-sm font-semibold shadow-[0_4px_20px_rgba(15,23,42,0.12)] hover:shadow-[0_6px_24px_rgba(13,148,136,0.2)] hover:border-teal-500 transition-all duration-200"
+            role="button"
+            aria-label="Scroll back to top"
+            className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-white border border-teal-600 text-teal-600 text-sm font-medium shadow-[0_4px_20px_rgba(15,23,42,0.12)] hover:shadow-[0_6px_24px_rgba(13,148,136,0.2)] hover:bg-teal-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
           >
             <svg
               viewBox="0 0 24 24"
@@ -47,7 +48,7 @@ export default function FloatingButtons() {
         )}
       </AnimatePresence>
 
-      {/* Book a Demo — bottom right */}
+      {/* Book a Demo — anchored to bottom-right */}
       <AnimatePresence>
         {showBookDemo && (
           <motion.a
@@ -55,15 +56,13 @@ export default function FloatingButtons() {
             href="https://cal.com/anmol-anand-f7s3pe"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Book a demo call with Miss Floss"
-            initial={{ opacity: 0, scale: 0.85, y: 16 }}
+            role="button"
+            aria-label="Book a demo with Miss Floss"
+            initial={{ opacity: 0, scale: 0.85, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.85, y: 16 }}
+            exit={{ opacity: 0, scale: 0.85, y: 12 }}
             transition={spring}
-            className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 h-11 px-5 text-sm font-semibold text-white rounded-full shadow-[0_8px_28px_rgba(13,148,136,0.45)] hover:shadow-[0_10px_36px_rgba(13,148,136,0.6)] transition-shadow duration-200"
-            style={{ backgroundColor: "#0d9488" }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0f766e")}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0d9488")}
+            className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-teal-600 text-white text-sm font-medium shadow-[0_8px_28px_rgba(13,148,136,0.45)] hover:bg-teal-700 hover:shadow-[0_10px_36px_rgba(13,148,136,0.6)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
           >
             <svg
               viewBox="0 0 24 24"
@@ -79,6 +78,6 @@ export default function FloatingButtons() {
           </motion.a>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }

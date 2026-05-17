@@ -29,8 +29,8 @@ export default function Navbar() {
         transition={{ duration: 0.3, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/80 backdrop-blur-md"
-            : "bg-white border-b border-slate-100"
+            ? "bg-white/5 backdrop-blur-sm"
+            : "bg-transparent"
         }`}
       >
         <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-16" : "h-20"}`}>
@@ -51,7 +51,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                className={`text-sm transition-colors duration-200 hover:text-slate-900 ${scrolled ? "text-slate-700" : "text-slate-900"}`}
               >
                 {link.label}
               </a>

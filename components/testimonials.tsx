@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const testimonials = [
   {
     quote:
@@ -51,13 +47,7 @@ export default function Testimonials() {
       className="relative bg-white min-h-screen flex flex-col justify-center py-10 px-6"
     >
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             Testimonials
           </p>
@@ -70,23 +60,15 @@ export default function Testimonials() {
           <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
             Dental practice owners share what changed after switching to Miss Floss.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
+          {testimonials.map((t) => (
+            <div
               key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
               className="relative rounded-2xl border border-slate-200 bg-white shadow-sm p-7 flex flex-col gap-6 hover:shadow-md hover:border-slate-300 transition-all duration-300"
             >
-              <svg
-                viewBox="0 0 32 32"
-                fill="none"
-                className="w-7 h-7 text-teal-200 shrink-0"
-              >
+              <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7 text-teal-200 shrink-0">
                 <path
                   d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
                   fill="currentColor"
@@ -103,9 +85,7 @@ export default function Testimonials() {
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
-                    <p className="text-sm font-semibold text-slate-900 truncate">
-                      {t.name}
-                    </p>
+                    <p className="text-sm font-semibold text-slate-900 truncate">{t.name}</p>
                     <Stars count={t.stars} />
                   </div>
                   <p className="text-[11px] text-slate-400 truncate">
@@ -113,17 +93,11 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mt-8 flex items-center justify-center gap-4"
-        >
+        <div className="mt-8 flex items-center justify-center gap-4">
           <div className="flex gap-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
               <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-teal-500">
@@ -135,7 +109,7 @@ export default function Testimonials() {
             <span className="text-slate-900 font-semibold">4.9 / 5</span> from dental
             clinic owners across Toronto &amp; the GTA
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

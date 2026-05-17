@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 
 function CountUp({
   to,
@@ -85,13 +85,7 @@ export default function Benefits() {
       />
 
       <div className="relative max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             The ROI
           </p>
@@ -101,16 +95,12 @@ export default function Benefits() {
           <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
             Real results from clinics that made the switch in Toronto and the GTA.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-          {stats.map((s, i) => (
-            <motion.div
+          {stats.map((s) => (
+            <div
               key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
               className="rounded-2xl border border-slate-200 bg-white shadow-sm p-7 text-center hover:shadow-md hover:border-teal-200 transition-all duration-300"
             >
               <p className="text-5xl font-bold bg-gradient-to-br from-teal-600 to-teal-500 bg-clip-text text-transparent mb-2">
@@ -124,17 +114,11 @@ export default function Benefits() {
               </p>
               <p className="text-sm font-semibold text-slate-800 mb-3">{s.label}</p>
               <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
               title: "Never miss a lead",
@@ -170,7 +154,7 @@ export default function Benefits() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

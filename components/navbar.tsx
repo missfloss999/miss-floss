@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -34,16 +33,12 @@ export default function Navbar() {
             : "bg-white border-b border-slate-100"
         }`}
       >
-        <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-[68px]" : "h-[76px]"}`}>
+        <div className={`max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${scrolled ? "h-16" : "h-20"}`}>
           <Link href="/">
-            <Image
+            <img
               src="/logo.png"
               alt="Miss Floss"
-              height={56}
-              width={180}
-              style={{ width: "auto", height: "56px" }}
-              quality={100}
-              priority
+              style={{ height: "64px", width: "auto", display: "block" }}
             />
           </Link>
 
@@ -110,7 +105,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className={`fixed ${scrolled ? "top-[68px]" : "top-[76px]"} left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm p-6 md:hidden`}
+            className={`fixed ${scrolled ? "top-16" : "top-20"} left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm p-6 md:hidden`}
           >
             <nav className="flex flex-col gap-5">
               {navLinks.map((link) => (

@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const steps = [
   {
     number: "01",
@@ -32,13 +28,7 @@ export default function HowItWorks() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-teal-200 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             How It Works
           </p>
@@ -52,20 +42,13 @@ export default function HowItWorks() {
             No complex migrations. No technical lift from your team.
             We handle everything.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8">
           <div className="hidden lg:block absolute top-10 left-[calc(33.33%+20px)] right-[calc(33.33%+20px)] h-px bg-gradient-to-r from-teal-200 via-teal-300 to-teal-200" />
 
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
-              className="relative flex flex-col"
-            >
+          {steps.map((step) => (
+            <div key={step.number} className="relative flex flex-col">
               <div className="relative w-20 h-20 mb-8 mx-auto lg:mx-0">
                 <div className="absolute inset-0 rounded-full bg-teal-50 border border-teal-200 shadow-[0_4px_16px_rgba(13,148,136,0.12)]" />
                 <div className="absolute inset-3 rounded-full bg-teal-100 border border-teal-200" />
@@ -85,17 +68,11 @@ export default function HowItWorks() {
                   {step.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mt-8 mx-auto max-w-2xl rounded-2xl border border-teal-200 bg-teal-50 p-8 text-center"
-        >
+        <div className="mt-8 mx-auto max-w-2xl rounded-2xl border border-teal-200 bg-teal-50 p-8 text-center">
           <p className="text-slate-700 text-base leading-relaxed">
             <span className="text-slate-900 font-semibold">
               No hardware. No training sessions. No disruption.
@@ -103,7 +80,7 @@ export default function HowItWorks() {
             Miss Floss is live in your clinic within two business days — with a
             dedicated account manager guiding every step.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

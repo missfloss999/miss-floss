@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const steps = [
   {
     number: "01",
@@ -56,13 +52,7 @@ export default function Solution() {
       />
 
       <div className="relative max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             The Solution
           </p>
@@ -77,22 +67,14 @@ export default function Solution() {
             voice that patients trust — booking, rescheduling, answering questions,
             and escalating emergencies without missing a beat.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
           {steps.map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.05 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.07 }}
-              className="relative"
-            >
+            <div key={step.number} className="relative">
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-8 left-full w-5 h-px bg-gradient-to-r from-teal-300 to-transparent z-10" />
               )}
-
               <div className="rounded-2xl border border-slate-200 bg-white shadow-sm p-6 h-full hover:shadow-md hover:border-teal-200 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600">
@@ -109,17 +91,11 @@ export default function Solution() {
                   {step.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center"
-        >
+        <div className="text-center">
           <a
             href="https://cal.com/anmol-anand-f7s3pe"
             target="_blank"
@@ -131,7 +107,7 @@ export default function Solution() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

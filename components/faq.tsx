@@ -106,13 +106,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative bg-white min-h-screen flex flex-col justify-center py-10 px-6">
       <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             FAQ
           </p>
@@ -123,15 +117,9 @@ export default function FAQ() {
             We know switching to AI feels like a big step. Here&apos;s everything
             you need to know before you do.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 md:px-8"
-        >
+        <div className="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 md:px-8">
           {faqs.map((faq, i) => (
             <FAQItem
               key={i}
@@ -141,15 +129,9 @@ export default function FAQ() {
               onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             />
           ))}
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center text-sm text-slate-400 mt-8"
-        >
+        <p className="text-center text-sm text-slate-400 mt-8">
           Still have questions?{" "}
           <a
             href="mailto:hello@missfloss.ai"
@@ -157,7 +139,7 @@ export default function FAQ() {
           >
             Talk to our team →
           </a>
-        </motion.p>
+        </p>
       </div>
     </section>
   );

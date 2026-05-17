@@ -1,7 +1,3 @@
-"use client";
-
-import { motion, type Variants } from "framer-motion";
-
 const features = [
   {
     title: "24/7 Call Answering",
@@ -77,27 +73,11 @@ const features = [
   },
 ];
 
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 export default function Features() {
   return (
     <section id="features" className="relative bg-[#f8fafc] min-h-screen flex flex-col justify-center py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-8"
-        >
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold tracking-widest text-teal-600 uppercase mb-4">
             Features
           </p>
@@ -109,19 +89,12 @@ export default function Features() {
             Miss Floss handles the entire patient communication workflow — without
             attitude, without sick days, without overtime.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {features.map((f) => (
-            <motion.div
+            <div
               key={f.title}
-              variants={item}
               className="group relative rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-teal-200 p-6 overflow-hidden transition-all duration-300 cursor-default"
             >
               <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 mb-5 group-hover:bg-teal-100 group-hover:border-teal-200 transition-colors duration-300">
@@ -131,9 +104,9 @@ export default function Features() {
                 {f.title}
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -30,17 +30,28 @@ export const metadata: Metadata = {
     "dental front desk automation",
   ],
   openGraph: {
-    title: "Miss Floss | AI Receptionist for Dental Clinics",
+    title: "Miss Floss | AI Receptionist for Dental Clinics in Canada",
     description:
-      "24/7 AI voice receptionist that books appointments, answers calls, and handles patient inquiries for dental clinics across Canada.",
-    type: "website",
-    locale: "en_CA",
+      "The average dental clinic misses 35% of inbound calls. Miss Floss answers every call, books every appointment, 24/7.",
+    url: "https://missfloss.ai",
     siteName: "Miss Floss",
+    images: [
+      {
+        url: "https://missfloss.ai/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Miss Floss AI Receptionist for Dental Clinics",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Miss Floss | AI Receptionist for Dental Clinics",
-    description: "24/7 AI voice receptionist built for Canadian dental clinics.",
+    description:
+      "Never miss a call. Never lose a patient. Miss Floss runs your front desk 24/7.",
+    images: ["https://missfloss.ai/og-image.png"],
   },
   robots: { index: true, follow: true },
 };

@@ -34,6 +34,7 @@ export default function Navbar() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="outline-none focus:outline-none"
           >
             <img
               src="/logo-removebg-preview.png"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, type Variants } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 function HeroCountUp({
   to,
@@ -41,7 +41,7 @@ function HeroCountUp({
 
 function ConnectedTimer({
   targetSeconds = 47,
-  startDelay = 800,
+  startDelay = 0,
 }: {
   targetSeconds?: number;
   startDelay?: number;
@@ -91,21 +91,163 @@ function VoiceWave() {
   );
 }
 
-function AICallCard() {
+function IncomingCallPhase() {
+  return (
+    <motion.div
+      key="incoming"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, y: -16, scale: 0.97 }}
+      transition={{ duration: 0.35 }}
+      className="flex flex-col items-center justify-center py-10 px-4"
+    >
+      {/* Ripple rings + phone icon */}
+      <div className="relative flex items-center justify-center mb-6" style={{ width: 96, height: 96 }}>
+        {[0, 0.55, 1.1].map((delay, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full border-2 border-teal-400"
+            animate={{ scale: [1, 2.5], opacity: [0.55, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, delay }}
+            style={{ width: "100%", height: "100%" }}
+          />
+        ))}
+        <div className="relative z-10 w-16 h-16 rounded-full bg-teal-600 flex items-center justify-center shadow-[0_4px_24px_rgba(13,148,136,0.55)]">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-7 h-7 text-white">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+        </div>
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="text-sm font-bold text-slate-800 mb-1"
+      >
+        New Patient Calling...
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.35 }}
+        className="text-xs text-slate-400 mb-5"
+      >
+        (416) 555-0192
+      </motion.p>
+      <motion.span
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5 }}
+        className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        Auto-Answering...
+      </motion.span>
+    </motion.div>
+  );
+}
+
+function ActiveCallPhase() {
   const messages = [
-    { from: "patient" as const, text: "Hi, I'd like to book a cleaning.", delay: 0.6 },
-    {
-      from: "ai" as const,
-      text: "Of course! We have Thursday at 2:00 PM or Friday at 10:00 AM. Which works for you?",
-      delay: 1.4,
-    },
-    { from: "patient" as const, text: "Thursday at 2 works.", delay: 2.4 },
-    {
-      from: "ai" as const,
-      text: "Done! Confirmed for Thursday, March 14 at 2:00 PM with Dr. Chen. Confirmation text is on its way.",
-      delay: 3.2,
-    },
+    { from: "patient" as const, text: "Hi, I'd like to book a cleaning.", delay: 0.3 },
+    { from: "ai" as const, text: "Of course! We have Thursday at 2:00 PM or Friday at 10:00 AM. Which works for you?", delay: 0.9 },
+    { from: "patient" as const, text: "Thursday at 2 works.", delay: 1.7 },
+    { from: "ai" as const, text: "Done! Confirmed for Thursday, March 14 at 2:00 PM with Dr. Chen. Confirmation text is on its way.", delay: 2.5 },
   ];
+
+  return (
+    <motion.div
+      key="active"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      {/* Caller info */}
+      <div className="px-4 py-2 bg-teal-50/60 border-b border-slate-100">
+        <div className="flex items-center gap-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5 text-teal-600 shrink-0">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          <span className="text-[11px] text-slate-500">
+            <ConnectedTimer targetSeconds={47} startDelay={0} />
+          </span>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div className="p-4 space-y-3 bg-white">
+        {messages.map((msg, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: msg.delay, duration: 0.25 }}
+            className={`flex ${msg.from === "ai" ? "justify-start" : "justify-end"}`}
+          >
+            <div className={`max-w-[82%] rounded-2xl px-3 py-2 text-[11px] leading-relaxed ${
+              msg.from === "ai"
+                ? "bg-teal-50 text-teal-900 border border-teal-100 rounded-tl-sm"
+                : "bg-slate-100 text-slate-700 border border-slate-200 rounded-tr-sm"
+            }`}>
+              {msg.text}
+            </div>
+          </motion.div>
+        ))}
+
+        {/* Booking pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: [0.92, 1.06, 1] }}
+          transition={{ delay: 3.1, duration: 0.5 }}
+        >
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-teal-600 px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(13,148,136,0.4)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Appointment booked · SMS sent
+          </span>
+        </motion.div>
+      </div>
+
+      {/* Stats grid */}
+      <motion.div
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 3.5, duration: 0.3 }}
+        className="mx-4 mb-3 grid grid-cols-2 gap-3"
+      >
+        <div className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-3 flex flex-col gap-1">
+          <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Calls Answered</span>
+          <HeroCountUp to={147} startDelay={3600} duration={1800} className="text-4xl font-black text-teal-600 leading-none" />
+        </div>
+        <div className="rounded-xl bg-green-50 border border-green-200 px-4 py-3 flex flex-col gap-1">
+          <div className="flex items-center gap-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3 text-green-500 shrink-0">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Missed Calls</span>
+          </div>
+          <motion.span
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: [0.7, 1.15, 1], opacity: 1 }}
+            transition={{ delay: 3.7, duration: 0.5 }}
+            className="text-4xl font-black text-green-500 leading-none"
+            style={{ filter: "drop-shadow(0 0 10px rgba(34,197,94,0.45))" }}
+          >0</motion.span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function AICallCard() {
+  const [phase, setPhase] = useState<"incoming" | "active">("incoming");
+
+  useEffect(() => {
+    const timer = setTimeout(() => setPhase("active"), 1800);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <motion.div
@@ -123,16 +265,13 @@ function AICallCard() {
         <div className="absolute -inset-3 bg-teal-500/8 rounded-3xl blur-2xl pointer-events-none" />
 
         <div className="relative rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xl shadow-slate-200/80">
-          {/* Header */}
+          {/* Header — always visible */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-slate-50">
             <div className="flex items-center gap-2.5">
               <div className="relative shrink-0">
                 <div className="w-8 h-8 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
-                    <path
-                      d="M12 2C9 2 6.5 4.5 6.5 7.5c0 2.2 1.3 4.1 3.2 5V21h4.6v-8.5c1.9-.9 3.2-2.8 3.2-5C17.5 4.5 15 2 12 2z"
-                      fill="#0d9488"
-                    />
+                    <path d="M12 2C9 2 6.5 4.5 6.5 7.5c0 2.2 1.3 4.1 3.2 5V21h4.6v-8.5c1.9-.9 3.2-2.8 3.2-5C17.5 4.5 15 2 12 2z" fill="#0d9488" />
                   </svg>
                 </div>
                 <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
@@ -148,115 +287,22 @@ function AICallCard() {
             </span>
           </div>
 
-          {/* Caller info */}
-          <div className="px-4 py-2 bg-teal-50/60 border-b border-slate-100">
-            <div className="flex items-center gap-2">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="w-3.5 h-3.5 text-teal-600 shrink-0"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                />
-              </svg>
-              <span className="text-[11px] text-slate-500"><ConnectedTimer /></span>
-            </div>
-          </div>
+          {/* Phase content */}
+          <AnimatePresence mode="wait">
+            {phase === "incoming" ? (
+              <IncomingCallPhase key="incoming" />
+            ) : (
+              <ActiveCallPhase key="active" />
+            )}
+          </AnimatePresence>
 
-          {/* Messages */}
-          <div className="p-4 space-y-3 bg-white">
-            {messages.map((msg, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: msg.delay, duration: 0.25 }}
-                className={`flex ${msg.from === "ai" ? "justify-start" : "justify-end"}`}
-              >
-                <div
-                  className={`max-w-[82%] rounded-2xl px-3 py-2 text-[11px] leading-relaxed ${
-                    msg.from === "ai"
-                      ? "bg-teal-50 text-teal-900 border border-teal-100 rounded-tl-sm"
-                      : "bg-slate-100 text-slate-700 border border-slate-200 rounded-tr-sm"
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              </motion.div>
-            ))}
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: [0.92, 1.06, 1] }}
-              transition={{ delay: 4.2, duration: 0.5 }}
-            >
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-teal-600 px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(13,148,136,0.4)]">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="w-3.5 h-3.5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Appointment booked · SMS sent
-              </span>
-            </motion.div>
-          </div>
-
-          {/* Stats grid — calls answered + missed calls side by side */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 4.6, duration: 0.3 }}
-            className="mx-4 mb-3 grid grid-cols-2 gap-3"
-          >
-            {/* Calls answered today */}
-            <div className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-3 flex flex-col gap-1">
-              <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Calls Today</span>
-              <HeroCountUp
-                to={147}
-                startDelay={4700}
-                duration={1800}
-                className="text-5xl font-black text-teal-600 leading-none"
-              />
-            </div>
-            {/* Missed calls — 0 is a WIN */}
-            <div className="rounded-xl bg-green-50 border border-green-200 px-4 py-3 flex flex-col gap-1">
-              <div className="flex items-center gap-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3 text-green-500 shrink-0">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Missed Calls</span>
-              </div>
-              <motion.span
-                initial={{ scale: 0.7, opacity: 0 }}
-                animate={{ scale: [0.7, 1.15, 1], opacity: 1 }}
-                transition={{ delay: 4.8, duration: 0.5 }}
-                className="text-5xl font-black text-green-500 leading-none"
-                style={{ filter: "drop-shadow(0 0 10px rgba(34,197,94,0.45))" }}
-              >0</motion.span>
-            </div>
-          </motion.div>
-
-          {/* Wave footer */}
+          {/* Wave footer — always visible */}
           <div className="px-4 pb-4 bg-white">
             <div className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-3">
               <VoiceWave />
             </div>
           </div>
         </div>
-
       </motion.div>
     </motion.div>
   );
@@ -280,15 +326,12 @@ export default function Hero() {
     >
       {/* Static background layer */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Teal radial glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px]"
           style={{
-            background:
-              "radial-gradient(ellipse at 50% 0%, rgba(13,148,136,0.07) 0%, transparent 60%)",
+            background: "radial-gradient(ellipse at 50% 0%, rgba(13,148,136,0.07) 0%, transparent 60%)",
           }}
         />
-        {/* Dot grid */}
         <div
           className="absolute inset-0"
           style={{
@@ -299,7 +342,6 @@ export default function Hero() {
             backgroundSize: "64px 64px",
           }}
         />
-        {/* Bottom fade */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
       </div>
 
@@ -325,22 +367,14 @@ export default function Hero() {
             >
               <span className="block">
                 {["Every", "Missed", "Call"].map((word) => (
-                  <motion.span
-                    key={word}
-                    variants={wordVariants}
-                    className="inline-block mr-[0.28em]"
-                  >
+                  <motion.span key={word} variants={wordVariants} className="inline-block mr-[0.28em]">
                     {word}
                   </motion.span>
                 ))}
               </span>
               <span className="block text-teal-600">
                 {["Is", "Lost", "Revenue."].map((word) => (
-                  <motion.span
-                    key={word}
-                    variants={wordVariants}
-                    className="inline-block mr-[0.28em]"
-                  >
+                  <motion.span key={word} variants={wordVariants} className="inline-block mr-[0.28em]">
                     {word}
                   </motion.span>
                 ))}
@@ -373,18 +407,8 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 h-12 px-7 text-sm font-semibold text-white bg-teal-600 rounded-full hover:bg-teal-700 transition-colors duration-200 shadow-[0_4px_20px_rgba(13,148,136,0.35)] hover:shadow-[0_6px_28px_rgba(13,148,136,0.5)]"
               >
                 Book a Free Demo
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="w-4 h-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </motion.a>
               <motion.a
@@ -407,18 +431,16 @@ export default function Hero() {
               transition={{ duration: 0.3, delay: 0.45 }}
               className="flex flex-wrap items-center gap-x-5 gap-y-2.5"
             >
-              {["PIPEDA Compliant", "Toronto & GTA", "Live in 48 hours", "24/7 availability"].map(
-                (label) => (
-                  <span key={label} className="flex items-center gap-1.5 text-sm text-slate-400">
-                    <span className="w-1 h-1 rounded-full bg-teal-500" />
-                    {label}
-                  </span>
-                )
-              )}
+              {["PIPEDA Compliant", "Toronto & GTA", "Live in 48 hours", "24/7 availability"].map((label) => (
+                <span key={label} className="flex items-center gap-1.5 text-sm text-slate-400">
+                  <span className="w-1 h-1 rounded-full bg-teal-500" />
+                  {label}
+                </span>
+              ))}
             </motion.div>
           </div>
 
-          {/* AI Visualization */}
+          {/* AI Card */}
           <div className="flex justify-center lg:justify-end">
             <AICallCard />
           </div>

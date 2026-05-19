@@ -154,11 +154,16 @@ function AICallCard() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4.6, duration: 0.3 }}
-            className="mx-4 mb-3 rounded-xl bg-slate-50 border border-slate-100 px-4 py-3 flex items-center gap-2"
+            className="mx-4 mb-3 rounded-xl bg-slate-50 border border-slate-100 px-5 py-4 flex items-center justify-between"
           >
+            <div className="flex flex-col items-start gap-1">
+              <span
+                className="text-5xl font-black text-teal-600 leading-none"
+                style={{ filter: "drop-shadow(0 0 10px rgba(13,148,136,0.45))" }}
+              >0</span>
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Missed Calls</span>
+            </div>
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="text-sm font-bold text-teal-600">0</span>
-            <span className="text-sm font-semibold text-slate-400 uppercase tracking-wide">Missed Calls</span>
           </motion.div>
 
           {/* Wave footer */}

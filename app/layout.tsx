@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import CookieBanner from "@/components/cookie-banner";
 import PreconnectHints from "@/components/preconnect-hints";
+import ScrollReset from "@/components/scroll-reset";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,6 +107,7 @@ export default function RootLayout({
       `}</Script>
       <body className="min-h-full flex flex-col bg-white text-slate-900 antialiased overflow-x-hidden">
         <script dangerouslySetInnerHTML={{ __html: "window.scrollTo(0,0);" }} />
+        <ScrollReset />
         <PreconnectHints />
         {children}
         <CookieBanner />

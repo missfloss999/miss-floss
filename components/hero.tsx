@@ -83,6 +83,17 @@ function AICallCard() {
             </span>
           </div>
 
+          {/* Calls answered today — moved inside from floating badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.3 }}
+            className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-white"
+          >
+            <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Calls answered today</span>
+            <span className="text-2xl font-black text-teal-600 leading-none">147</span>
+          </motion.div>
+
           {/* Caller info */}
           <div className="px-4 py-2 bg-teal-50/60 border-b border-slate-100">
             <div className="flex items-center gap-2">
@@ -154,16 +165,16 @@ function AICallCard() {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4.6, duration: 0.3 }}
-            className="mx-4 mb-3 rounded-xl bg-slate-50 border border-slate-100 px-5 py-4 flex items-center justify-between"
+            className="mx-4 mb-3 rounded-xl bg-teal-50 border border-teal-100 px-5 py-4 flex items-center justify-between"
           >
             <div className="flex flex-col items-start gap-1">
               <span
-                className="text-5xl font-black text-teal-600 leading-none"
-                style={{ filter: "drop-shadow(0 0 10px rgba(13,148,136,0.45))" }}
+                className="text-4xl font-black text-teal-600 leading-none"
+                style={{ filter: "drop-shadow(0 0 10px rgba(13,148,136,0.4))" }}
               >0</span>
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Missed Calls</span>
             </div>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
           </motion.div>
 
           {/* Wave footer */}
@@ -173,17 +184,6 @@ function AICallCard() {
             </div>
           </div>
         </div>
-
-        {/* Floating stat badges */}
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.9, duration: 0.3 }}
-          className="hidden lg:block absolute -right-4 top-10 bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-lg shadow-slate-200/60"
-        >
-          <p className="text-[9px] text-slate-400 uppercase tracking-wide">Calls answered today</p>
-          <p className="text-4xl font-bold text-teal-600 leading-none mt-1">147</p>
-        </motion.div>
 
       </motion.div>
     </motion.div>

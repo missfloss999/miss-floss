@@ -71,18 +71,18 @@ function VoiceWave() {
   const bars = 28;
   return (
     <div
-      className="flex items-center justify-center gap-[2.5px] h-10"
-      style={{ filter: "drop-shadow(0 0 10px rgba(13,148,136,0.65))" }}
+      className="flex items-center justify-center gap-[2.5px] h-14"
+      style={{ filter: "drop-shadow(0 0 12px rgba(13,148,136,0.75))" }}
     >
       {Array.from({ length: bars }).map((_, i) => (
         <motion.div
           key={i}
           className="w-[2px] rounded-full bg-teal-600"
-          animate={{ scaleY: [0.15, 1, 0.25, 0.75, 0.15] }}
+          animate={{ scaleY: [0.08, 1, 0.18, 0.88, 0.08] }}
           transition={{
-            duration: 1.5,
+            duration: 1.1,
             repeat: Infinity,
-            delay: (i * 1.5) / bars,
+            delay: (i * 1.1) / bars,
           }}
           style={{ height: "100%", transformOrigin: "center" }}
         />
@@ -147,17 +147,6 @@ function AICallCard() {
               LIVE
             </span>
           </div>
-
-          {/* Calls answered today — moved inside from floating badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.3 }}
-            className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-white"
-          >
-            <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Calls answered today</span>
-            <HeroCountUp to={147} startDelay={900} duration={1800} className="text-2xl font-black text-teal-600 leading-none" />
-          </motion.div>
 
           {/* Caller info */}
           <div className="px-4 py-2 bg-teal-50/60 border-b border-slate-100">
@@ -225,28 +214,38 @@ function AICallCard() {
             </motion.div>
           </div>
 
-          {/* Missed calls stat — 0 is a WIN, celebrate in green */}
+          {/* Stats grid — calls answered + missed calls side by side */}
           <motion.div
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4.6, duration: 0.3 }}
-            className="mx-4 mb-3 rounded-xl bg-emerald-50 border border-emerald-100 px-5 py-4 flex items-center justify-between"
+            className="mx-4 mb-3 grid grid-cols-2 gap-3"
           >
-            <div className="flex flex-col items-start gap-1">
+            {/* Calls answered today */}
+            <div className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-3 flex flex-col gap-1">
+              <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Calls Today</span>
+              <HeroCountUp
+                to={147}
+                startDelay={4700}
+                duration={1800}
+                className="text-5xl font-black text-teal-600 leading-none"
+              />
+            </div>
+            {/* Missed calls — 0 is a WIN */}
+            <div className="rounded-xl bg-green-50 border border-green-200 px-4 py-3 flex flex-col gap-1">
+              <div className="flex items-center gap-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3 text-green-500 shrink-0">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Missed Calls</span>
+              </div>
               <motion.span
                 initial={{ scale: 0.7, opacity: 0 }}
                 animate={{ scale: [0.7, 1.15, 1], opacity: 1 }}
                 transition={{ delay: 4.8, duration: 0.5 }}
-                className="text-4xl font-black text-green-500 leading-none"
+                className="text-5xl font-black text-green-500 leading-none"
                 style={{ filter: "drop-shadow(0 0 10px rgba(34,197,94,0.45))" }}
               >0</motion.span>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Missed Calls</span>
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-emerald-500">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-              </svg>
             </div>
           </motion.div>
 

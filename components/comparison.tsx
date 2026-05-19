@@ -95,29 +95,29 @@ export default function Comparison() {
           variants={fadeUp}
           className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white"
         >
-          <table className="w-full min-w-[640px]">
+          <table className="w-full" style={{ minWidth: "560px" }}>
             <thead>
               <tr className="border-b border-slate-200 bg-slate-50">
-                <th className="text-left p-5 text-sm font-semibold text-slate-400 uppercase tracking-wider w-[38%]">
+                <th className="text-left p-4 text-xs font-semibold text-slate-400 uppercase tracking-wider sticky left-0 bg-slate-50 z-10 min-w-[140px]">
                   Feature
                 </th>
-                <th className="p-5 w-[16%] bg-teal-50 border-x border-teal-100">
+                <th className="p-4 bg-teal-50 border-x border-teal-100 min-w-[100px]">
                   <div className="flex flex-col items-center gap-1">
-                    <span className="text-sm font-bold text-teal-700 uppercase tracking-wide">
+                    <span className="text-xs font-bold text-teal-700 uppercase tracking-wide">
                       Miss Floss
                     </span>
-                    <span className="text-xs text-teal-500 font-normal">
+                    <span className="text-[10px] text-teal-500 font-normal">
                       AI Receptionist
                     </span>
                   </div>
                 </th>
                 {competitors.map((c) => (
-                  <th key={c.name} className="p-5 w-[16%]">
+                  <th key={c.name} className="p-4 min-w-[100px]">
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-sm font-semibold text-slate-600">
+                      <span className="text-xs font-semibold text-slate-600">
                         {c.name}
                       </span>
-                      <span className="text-xs text-slate-400 font-normal">
+                      <span className="text-[10px] text-slate-400 font-normal">
                         {c.note}
                       </span>
                     </div>
@@ -134,14 +134,14 @@ export default function Comparison() {
                     i % 2 === 0 ? "bg-white" : "bg-slate-50/30"
                   }`}
                 >
-                  <td className="px-5 py-4 text-base text-slate-700">{feat}</td>
-                  <td className="px-5 py-4 text-center bg-teal-50/60 border-x border-teal-100">
+                  <td className={`px-4 py-3.5 text-sm text-slate-700 sticky left-0 z-10 ${i % 2 === 0 ? "bg-white" : "bg-slate-50/70"}`}>{feat}</td>
+                  <td className="px-4 py-3.5 text-center bg-teal-50/60 border-x border-teal-100">
                     <div className="flex justify-center">
                       <Cell value={true} />
                     </div>
                   </td>
                   {competitors.map((c) => (
-                    <td key={c.name} className="px-5 py-4 text-center">
+                    <td key={c.name} className="px-4 py-3.5 text-center">
                       <div className="flex justify-center">
                         <Cell value={c.values[i]} />
                       </div>

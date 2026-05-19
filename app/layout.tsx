@@ -1,17 +1,28 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import CookieBanner from "@/components/cookie-banner";
+import PreconnectHints from "@/components/preconnect-hints";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "Miss Floss | AI Receptionist for Dental Clinics in Canada",
@@ -93,9 +104,11 @@ export default function RootLayout({
         gtag('js', new Date());
         gtag('config', 'G-B3Y0XESKEW');
       `}</Script>
-      <body className="min-h-full flex flex-col bg-white text-slate-900 antialiased">
+      <body className="min-h-full flex flex-col bg-white text-slate-900 antialiased overflow-x-hidden">
         <script dangerouslySetInnerHTML={{ __html: "window.scrollTo(0,0);" }} />
+        <PreconnectHints />
         {children}
+        <CookieBanner />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

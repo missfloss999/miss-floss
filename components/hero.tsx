@@ -39,18 +39,16 @@ function HeroCountUp({
   return <span ref={spanRef} className={className} style={style}>0</span>;
 }
 
-function ConnectedTimer({ startDelay = 0 }: { startDelay?: number }) {
-  const [secs, setSecs] = useState(323);
+function ConnectedTimer() {
+  const [secs, setSecs] = useState(0);
+  const startRef = useRef<number>(0);
   useEffect(() => {
-    let iv: ReturnType<typeof setInterval> | null = null;
-    const delay = setTimeout(() => {
-      iv = setInterval(() => setSecs((s) => s + 1), 1000);
-    }, startDelay);
-    return () => {
-      clearTimeout(delay);
-      if (iv) clearInterval(iv);
-    };
-  }, [startDelay]);
+    startRef.current = Date.now();
+    const iv = setInterval(() => {
+      setSecs(Math.floor((Date.now() - startRef.current) / 1000));
+    }, 1000);
+    return () => clearInterval(iv);
+  }, []);
   const m = Math.floor(secs / 60);
   const s = secs % 60;
   return <span>(416) 555-0192 · Connected {m}:{String(s).padStart(2, "0")}</span>;
@@ -159,7 +157,7 @@ function ActiveCallPhase() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
           </svg>
           <span className="text-[11px] text-slate-500">
-            <ConnectedTimer targetSeconds={47} startDelay={0} />
+            <ConnectedTimer />
           </span>
         </div>
       </div>

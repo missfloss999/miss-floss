@@ -69,31 +69,34 @@ export default function HowItWorks() {
           variants={stagger}
           className="relative grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8"
         >
-          <div className="hidden lg:block absolute top-10 left-[calc(33.33%+20px)] right-[calc(33.33%+20px)] h-px bg-gradient-to-r from-teal-200 via-teal-300 to-teal-200" />
+          {/* Line 01 → 02 */}
+          <div className="hidden lg:block absolute top-10 left-[calc(16.67%+44px)] right-[calc(50%+44px)] h-px bg-gradient-to-r from-teal-200 to-teal-300" />
+          {/* Line 02 → 03 */}
+          <div className="hidden lg:block absolute top-10 left-[calc(50%+44px)] right-[calc(16.67%+44px)] h-px bg-gradient-to-r from-teal-300 to-teal-200" />
 
-            {steps.map((step) => (
-              <motion.div key={step.number} variants={fadeUp} className="relative flex flex-col">
-                <div className="relative w-20 h-20 mb-8 mx-auto lg:mx-0">
-                  <div className="absolute inset-0 rounded-full bg-teal-50 border border-teal-200 shadow-[0_4px_16px_rgba(13,148,136,0.12)]" />
-                  <div className="absolute inset-3 rounded-full bg-teal-100 border border-teal-200" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-teal-600">
-                      {step.number}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="text-center lg:text-left">
-                  <span className="inline-block text-xs font-semibold text-teal-600 tracking-widest uppercase bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full mb-4">
-                    {step.badge}
+          {steps.map((step) => (
+            <motion.div key={step.number} variants={fadeUp} className="relative flex flex-col">
+              <div className="relative w-20 h-20 mb-8 mx-auto">
+                <div className="absolute inset-0 rounded-full bg-teal-50 border border-teal-200 shadow-[0_4px_16px_rgba(13,148,136,0.12)]" />
+                <div className="absolute inset-3 rounded-full bg-teal-100 border border-teal-200" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-teal-600">
+                    {step.number}
                   </span>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-base text-slate-500 leading-relaxed">
-                    {step.desc}
-                  </p>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+
+              <div className="text-center">
+                <span className="inline-block text-xs font-semibold text-teal-600 tracking-widest uppercase bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full mb-4">
+                  {step.badge}
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                <p className="text-base text-slate-500 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         <motion.div

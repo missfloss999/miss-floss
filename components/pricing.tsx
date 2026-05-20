@@ -157,7 +157,7 @@ export default function Pricing() {
                   )}
                 </div>
                 {plan.perDay && (
-                  <p className="text-xs font-medium text-teal-600 mb-1">{plan.perDay} — less than a coffee</p>
+                  <p className="text-xs font-medium text-teal-600 mb-1">{plan.perDay} — cheaper than one no-show 🦷</p>
                 )}
                 <p className="text-sm text-slate-500">{plan.subtitle}</p>
               </div>

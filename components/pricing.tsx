@@ -192,48 +192,46 @@ export default function Pricing() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 rounded-2xl border border-slate-100 bg-white p-6"
         >
           {/* 30-day guarantee */}
-          <motion.div variants={fadeUp} className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
+          <motion.div variants={fadeUp} className="flex items-center gap-3">
+            <span className="w-9 h-9 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-teal-600">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
             </span>
             <div>
-              <p className="text-sm font-semibold text-slate-700">30-Day Money-Back Guarantee</p>
-              <p className="text-xs text-slate-400">Not satisfied? Full refund. No questions asked.</p>
+              <p className="text-sm font-semibold text-slate-700">30-Day Money-Back</p>
+              <p className="text-xs text-slate-400">Full refund. No questions asked.</p>
             </div>
           </motion.div>
 
-          <span className="hidden sm:block w-px h-10 bg-slate-200" />
-
           {/* Founding member lock-in */}
-          <motion.div variants={fadeUp} className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
+          <motion.div variants={fadeUp} className="flex items-center gap-3">
+            <span className="w-9 h-9 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-teal-600">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
             </span>
             <div>
               <p className="text-sm font-semibold text-slate-700">Founding Member Pricing</p>
-              <p className="text-xs text-slate-400">Lock in today's rate forever — price increases as we grow.</p>
+              <p className="text-xs text-slate-400">Lock in today's rate forever.</p>
             </div>
           </motion.div>
 
           <span className="hidden sm:block w-px h-10 bg-slate-200" />
 
           {/* Free trial */}
-          <motion.div variants={fadeUp} className="flex items-center gap-2.5">
-            <span className="w-8 h-8 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
+          <motion.div variants={fadeUp} className="flex items-center gap-3">
+            <span className="w-9 h-9 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-teal-600">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </span>
             <div>
               <p className="text-sm font-semibold text-slate-700">14-Day Free Trial</p>
-              <p className="text-xs text-slate-400">No credit card required to get started.</p>
+              <p className="text-xs text-slate-400">No credit card required.</p>
             </div>
           </motion.div>
         </motion.div>

@@ -135,7 +135,7 @@ export default function Comparison() {
             <table className="w-full min-w-[480px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="text-left p-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <th className="sticky left-0 z-10 bg-slate-50 text-left p-3 text-xs font-semibold text-slate-400 uppercase tracking-wider border-r border-slate-200">
                     Feature
                   </th>
                   <th className="p-3 bg-teal-50 border-x border-teal-100 text-center">
@@ -151,7 +151,7 @@ export default function Comparison() {
               <tbody>
                 {features.map((feat, i) => (
                   <tr key={feat} className={`border-b border-slate-100 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-slate-50/30"}`}>
-                    <td className="px-3 py-2.5 text-xs text-slate-700">{feat}</td>
+                    <td className={`sticky left-0 z-10 px-3 py-2.5 text-xs text-slate-700 border-r border-slate-200 ${i % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>{feat}</td>
                     <td className="px-3 py-2.5 text-center bg-teal-50/60 border-x border-teal-100">
                       <div className="flex justify-center"><Cell value={missFlossValues[i]} /></div>
                     </td>
